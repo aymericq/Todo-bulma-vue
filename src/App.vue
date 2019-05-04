@@ -14,7 +14,7 @@
     </section>
     <section class="section">
       <div class="columns">
-        <div class="column is-one-third ">
+        <div class="column">
           <div class="title">
             Not started
           </div>
@@ -28,19 +28,32 @@
             </div>
             <div class="card-footer">
               <div class="card-footer-item">
-                <a v-on:click="card.status = 'wip'" class="button is-info">Start</a>
+                <a v-on:click="card.status = 'wip'" class="button is-info">
+                  <span></span>
+                  <span class="icon" style="margin-right: 2px">
+                    <font-awesome-icon icon="play-circle" />
+                  </span>
+                  <span class="is-hidden-touch ">
+                    Start
+                  </span>
+                </a>
               </div>
               <div class="card-footer-item">
                 <a v-on:click="card.status = 'deleted'" class="button is-danger">
-                  <span class="icon">
+                  <span></span>
+                  <span class="icon" style="margin-right: 2px">
                     <font-awesome-icon icon="trash" />
+                  </span>
+                  <span class="is-hidden-touch">
+                    Delete
                   </span>
                 </a>
               </div>
             </div>
           </div>
         </div>
-        <div class="column is-one-third ">
+        <div class="is-divider-vertical"></div>
+        <div class="column">
           <div class="title">
             In progress
           </div>
@@ -54,18 +67,43 @@
             </div>
             <div class="card-footer">
               <div class="card-footer-item">
-                <a class="button is-success">Done</a>
+                <a v-on:click="card.status = 'done'" class="button is-success">
+                  <span></span>
+                  <span class="icon">
+                    <font-awesome-icon icon="check-circle" />
+                  </span>
+                  <span class="is-hidden-touch">
+                    Done
+                  </span>
+                </a>
               </div>
               <div class="card-footer-item">
-                <a class="button is-warning">Stop</a>
+                <a v-on:click="card.status = 'not_started'" class="button is-warning">
+                  <span></span>
+                  <span class="icon">
+                    <font-awesome-icon icon="stop-circle" />
+                  </span>
+                  <span class="is-hidden-touch">
+                    Stop
+                  </span>
+                </a>
               </div>
               <div class="card-footer-item">
-                <a class="button is-danger">Delete</a>
+                <a v-on:click="card.status = 'deleted'" class="button is-danger">
+                  <span></span>
+                  <span class="icon">
+                    <font-awesome-icon icon="trash" />
+                  </span>
+                  <span class="is-hidden-touch">
+                    Delete
+                  </span>
+                </a>
               </div>
             </div>
           </div>
         </div>
-        <div class="column is-one-third ">
+        <div class="is-divider-vertical"></div>
+        <div class="column">
           <div class="title">
             Done
           </div>
@@ -79,10 +117,26 @@
             </div>
             <div class="card-footer">
               <div class="card-footer-item">
-                <a class="button is-info">Reset</a>
+                <a v-on:click="card.status = 'not_started'" class="button is-info">
+                  <span></span>
+                  <span class="icon">
+                    <font-awesome-icon icon="redo" />
+                  </span>
+                  <span class="is-hidden-touch">
+                    Reset
+                  </span>
+                </a>
               </div>
               <div class="card-footer-item">
-                <a class="button is-danger">Delete</a>
+                <a v-on:click="card.status = 'deleted'" class="button is-danger">
+                  <span></span>
+                  <span class="icon">
+                    <font-awesome-icon icon="trash" />
+                  </span>
+                  <span class="is-hidden-touch">
+                    Delete
+                  </span>
+                </a>
               </div>
             </div>
           </div>
@@ -96,12 +150,18 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import 'bulma/css/bulma.css'
+import 'bulma-divider/dist/css/bulma-divider.min.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faPlayCircle, faCheckCircle, faStopCircle, faRedo } 
+  from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import Vue from 'vue'
 
 library.add(faTrash)
+library.add(faPlayCircle)
+library.add(faCheckCircle)
+library.add(faStopCircle)
+library.add(faRedo)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
